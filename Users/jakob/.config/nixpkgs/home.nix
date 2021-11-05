@@ -14,28 +14,28 @@ in
   home.homeDirectory = "/Users/jakob";
 
   home.packages = with pkgs; [
+    (yarn.override { nodejs = nodejs-12_x; })
     asciinema
     binutils
-    cmake
     circleci-cli
+    cmake
     cracklib
     dos2unix
-    vscode
-    lolcat
-    mpv
-    openssl
-    openvpn
-    silver-searcher
     git-crypt
+    gnupg
     google-cloud-sdk
+    htop
+    httpie
     imagemagick
     inetutils
     javajdk
     jq
-    gnupg
-    httpie
-    htop
+    latest.rustChannels.nightly.rust
+    lolcat
+    mpv
     openssh
+    openssl
+    openvpn
     pandoc
     pkg-config
     plantuml
@@ -46,13 +46,14 @@ in
     python3Packages.pyserial
     python3Packages.xkcdpass
     rclone
+    silver-searcher
     sl
     speedtest-cli
     tectonic
     texlive.combined.scheme-medium
     ubuntu_font_family
     vscode
-    (yarn.override { nodejs = nodejs-12_x; })
+    vscode
     youtube-dl
   ];
 
@@ -91,6 +92,7 @@ Host *.onion
     '';
   };
 
+  programs.fish.enable = true;
   programs.zsh.enable = true;	
 
   # This value determines the Home Manager release that your
