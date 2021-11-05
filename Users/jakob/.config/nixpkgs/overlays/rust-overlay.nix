@@ -1,0 +1,1 @@
+/Users/jakob/.nix-defexpr/channels/nixpkgs-mozilla/rust-overlay.nix
