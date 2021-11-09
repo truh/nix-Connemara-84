@@ -62,6 +62,7 @@ in
 
   home.sessionVariables = {
     EDITOR = "nvim";
+    SHELL = "${pkgs.zsh}/bin/zsh";
   };
 
   programs.direnv = {
@@ -98,6 +99,19 @@ in
     enable = true;
     enableAutosuggestions = true;
     enableCompletion = true;
+    oh-my-zsh = {
+      enable = true;
+      plugins = [
+        "cargo"
+        "direnv"
+        "docker"
+        "docker-compose"
+        "git"
+        "httpie"
+        "yarn"
+      ];
+      theme = "fishy";
+    };
   };
 
   # This value determines the Home Manager release that your
