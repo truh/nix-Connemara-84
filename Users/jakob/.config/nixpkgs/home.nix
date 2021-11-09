@@ -33,6 +33,7 @@ in
     latest.rustChannels.nightly.rust
     lolcat
     mpv
+    nix-bundle
     openssh
     openssl
     openvpn
@@ -81,6 +82,7 @@ in
     enable = true;
     viAlias = true;
     vimAlias = true;
+    withPython3 = true;
   };
 
   programs.ssh = {
@@ -93,7 +95,11 @@ Host *.onion
   };
 
   programs.fish.enable = true;
-  programs.zsh.enable = true;	
+  programs.zsh = {
+    enable = true;
+    enableAutosuggestions = true;
+    enableCompletion = true;
+  };
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
