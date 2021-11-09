@@ -88,9 +88,8 @@ in
   programs.ssh = {
     enable = true;
     extraConfig = ''
-
-Host *.onion
-  ProxyCommand ${pkgs.nmap}/bin/ncat --proxy-type socks5 --proxy 127.0.0.1:9050 %h %p
+      Host *.onion
+        ProxyCommand ${pkgs.nmap}/bin/ncat --proxy-type socks5 --proxy 127.0.0.1:9050 %h %p
     '';
   };
 
