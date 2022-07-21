@@ -14,48 +14,60 @@ in
   home.homeDirectory = "/Users/jakob";
 
   home.packages = with pkgs; [
-    (yarn.override { nodejs = nodejs-12_x; })
+    alacritty
+    aria
     asciinema
     binutils
     circleci-cli
     cmake
     cracklib
     dos2unix
+    ffmpeg
     git-crypt
     gnupg
     google-cloud-sdk
+    graphviz
     htop
     httpie
     imagemagick
     inetutils
     javajdk
     jq
-    latest.rustChannels.nightly.rust
+    kitty
     lolcat
+    maven
     mpv
+    nix
     nix-bundle
+    nodejs-16_x
     openssh
     openssl
     openvpn
+    oracle-instantclient
+    p7zip
     pandoc
+    pinentry-curses
     pkg-config
     plantuml
     powershell
     pre-commit
     python3Packages.black
+    python3Packages.httpx
     python3Packages.poetry
     python3Packages.pyserial
     python3Packages.xkcdpass
+    rbw
     rclone
+    restic
+    rustup
     silver-searcher
-    sl
     speedtest-cli
     tectonic
-    texlive.combined.scheme-medium
     ubuntu_font_family
+    up
     vscode
     vscode
-    youtube-dl
+    yarn
   ];
 
   fonts.fontconfig.enable = true;
@@ -69,6 +81,7 @@ in
     enable = true;
     enableFishIntegration = true;
     enableBashIntegration = true;
+    enableZshIntegration = true;
   };
 
   programs.git = {
@@ -86,15 +99,6 @@ in
     withPython3 = true;
   };
 
-  programs.ssh = {
-    enable = true;
-    extraConfig = ''
-      Host *.onion
-        ProxyCommand ${pkgs.nmap}/bin/ncat --proxy-type socks5 --proxy 127.0.0.1:9050 %h %p
-    '';
-  };
-
-  programs.fish.enable = true;
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
@@ -102,12 +106,12 @@ in
     oh-my-zsh = {
       enable = true;
       plugins = [
-        "cargo"
         "direnv"
         "docker"
         "docker-compose"
         "git"
         "httpie"
+	"rust"
         "yarn"
       ];
       theme = "fishy";
