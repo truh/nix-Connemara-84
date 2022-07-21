@@ -47,6 +47,7 @@ in
     p7zip
     pandoc
     pinentry-curses
+    pixman
     pkg-config
     plantuml
     powershell
